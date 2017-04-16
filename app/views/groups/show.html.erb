@@ -1,6 +1,29 @@
 
-<%= link_to("发表文章", new_group_post_path, class: "btn btn-default pull-right") %>
+<%= link_to("发表文章", new_group_post_path(@group), class: "btn btn-primary pull-right") %>
 
 <h1><%= @group.title %></h1>
 
 <%= @group.description %>
+<hr>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>内容</th>
+      <th>发表者</th>
+      <th>创建时间</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td>#</td>
+        <td><%= post.content %></td>
+        <td><%= post.user.email %></td>
+        <td><%= post.created_at %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
