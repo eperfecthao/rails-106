@@ -10,6 +10,7 @@
         <th>#</th>
         <th>标题</th>
         <th>描述</th>
+        <th>创建者</th>
       </tr>
     </thead>
 
@@ -19,6 +20,7 @@
         <td>#</td>
         <td><%= link_to(group.title, group_path(group)) %></td>
         <td><%= group.description %></td>
+        <td><%= group.user.email %></td>
         <td>
           <%= link_to("编辑", edit_group_path(group), class: "btn btn-default") %>
           <%= link_to("删除", group_path(group), class: "btn btn-default",
